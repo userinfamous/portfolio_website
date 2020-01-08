@@ -1,11 +1,10 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Box, Drawer, CssBaseline, List, Divider, ListItem, ListItemIcon, Typography } from '@material-ui/core';
+import { Grid, Box, Drawer, CssBaseline, List, Divider, ListItem, ListItemIcon, Typography } from '@material-ui/core';
 import { ContactMail, Home, AccountBoxRounded, Work, LinkedIn, GitHub, Instagram, Facebook, Twitter } from '@material-ui/icons';
 
 
 const drawerWidth = 80;
-
 const useStyles = makeStyles(theme => ({
   topIcon: {
     top: "0px",
@@ -96,9 +95,22 @@ export default function PermanentDrawerLeft() {
         </List>
 
       </Drawer>
-      <main className={classes.content}>
+      <Grid
+        container
+        direction="row"
+        justify="flex-start"
+        alignItems="center"
+        className={classes.content}
+      >
+        <Grid item xs={12}>
+          <Typography style={{color:"#ffffff"}} variant="h2">
+            <Box fontFamily="Ramabhadra, sans-serif" display="inline">Hi, I'm </Box>
+            <Box fontFamily="Ramabhadra, sans-serif" style={{color:"#262037"}} display="inline">Vuottek,</Box>
+            <Box fontFamily="Ramabhadra, sans-serif">Full-Stack Web Developer</Box>
+          </Typography>
+        </Grid>
         
-      </main>
+      </Grid>
     </div>
   );
 }
