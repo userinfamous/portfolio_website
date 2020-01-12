@@ -1,7 +1,15 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { withStyles, makeStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
-import { Tabs, Tab, Typography, Box } from "@material-ui/core";
+import {
+  Tabs,
+  Tab,
+  Typography,
+  Box,
+  ListItem,
+  ListItemIcon,
+  List
+} from "@material-ui/core";
 import {
   ContactMail,
   Home,
@@ -14,32 +22,26 @@ import {
   Twitter
 } from "@material-ui/icons";
 import HomePage from "../pages/HomePage";
+import AboutMe from "../pages/AboutMe";
+import Projects from "../pages/Projects";
+import Contact from "../pages/Contact";
 
 const useStyles = makeStyles(theme => ({
   topIcon: {
-    top: "0px",
     color: "#505050",
     textAlign: "center",
-    marginTop: "0.5em"
-  },
-  icons: {
-    color: "#505050",
     marginTop: "0.5em",
-    marginLeft: "0.45em"
+    marginBottom: "30vh"
   },
   socialIcons: {
     color: "#505050",
-    marginLeft: "0.45em"
+    marginLeft: "2em"
   },
   root: {
     flexGrow: 1,
     backgroundColor: "#000",
     display: "flex",
     height: "100vh"
-  },
-  tabs: {
-    borderRight: `1px solid ${theme.palette.divider}`,
-    backgroundColor: "#1C1C1C"
   }
 }));
 
@@ -74,7 +76,7 @@ function a11yProps(index) {
 
 export default function SideNav() {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(1);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -82,38 +84,119 @@ export default function SideNav() {
 
   return (
     <div className={classes.root}>
-      <Tabs
-        textColor="secondary"
-        indicatorColor="secondary"
+      <StyledTabs
         orientation="vertical"
-        variant="standard"
         value={value}
         onChange={handleChange}
         aria-label="side nav"
-        className={classes.tabs}
       >
-        <Tab
-          classes={{ root: classes.tab }}
-          icon={<Home />}
-          label="Home"
-          {...a11yProps(0)}
+        {/* Logo */}
+        <Typography component="div" className={classes.topIcon} variant="h5">
+          <Box fontWeight="fontWeightBold">V</Box>
+        </Typography>
+
+        {/* Tabs */}
+        <StyledTab icon={<Home />} label="Home" {...a11yProps(0)} />
+        <StyledTab
+          icon={<AccountBoxRounded />}
+          label="About me"
+          {...a11yProps(1)}
         />
-        <Tab icon={<AccountBoxRounded />} label="About me" {...a11yProps(1)} />
-        <Tab icon={<Work />} {...a11yProps(2)} label="Projects" />
-        <Tab icon={<ContactMail />} {...a11yProps(3)} label="Contact" />
-      </Tabs>
-      <TabPanel value={value} index={0}>
+        <StyledTab icon={<Work />} {...a11yProps(2)} label="Projects" />
+        <StyledTab icon={<ContactMail />} {...a11yProps(3)} label="Contact" />
+
+        {/* Social Icons */}
+        <List style={{ marginTop: "13vh" }}>
+          <ListItem
+            button
+            component="a"
+            href="https://github.com/userinfamous"
+            target="_blank"
+          >
+            <ListItemIcon>
+              <GitHub className={classes.socialIcons} />
+            </ListItemIcon>
+          </ListItem>
+          <ListItem
+            button
+            component="a"
+            href="https://www.linkedin.com/in/vuottek-un-718731156/"
+            target="_blank"
+          >
+            <ListItemIcon>
+              <LinkedIn className={classes.socialIcons} />
+            </ListItemIcon>
+          </ListItem>
+          <ListItem
+            button
+            component="a"
+            href="https://www.facebook.com/profile.php?id=100015006365789"
+            target="_blank"
+          >
+            <ListItemIcon>
+              <Facebook className={classes.socialIcons} />
+            </ListItemIcon>
+          </ListItem>
+          <ListItem
+            button
+            component="a"
+            href="https://www.instagram.com/autisticcatt/"
+            target="_blank"
+          >
+            <ListItemIcon>
+              <Instagram className={classes.socialIcons} />
+            </ListItemIcon>
+          </ListItem>
+          <ListItem
+            button
+            component="a"
+            href="https://twitter.com/VVoshe"
+            target="_blank"
+          >
+            <ListItemIcon>
+              <Twitter className={classes.socialIcons} />
+            </ListItemIcon>
+          </ListItem>
+        </List>
+      </StyledTabs>
+
+      <TabPanel value={value} index={1}>
         <HomePage />
       </TabPanel>
-      <TabPanel value={value} index={1}>
-        Item Two
-      </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        <AboutMe />
       </TabPanel>
       <TabPanel value={value} index={3}>
-        Item Four
+        <Projects />
+      </TabPanel>
+      <TabPanel value={value} index={4}>
+        <Contact />
       </TabPanel>
     </div>
   );
 }
+
+const StyledTabs = withStyles(theme => ({
+  root: {
+    borderRight: `1px solid ${theme.palette.divider}`,
+    backgroundColor: "#1c1c1c"
+  },
+  indicator: {
+    backgroundColor: "#5E2BED"
+  }
+}))(Tabs);
+
+const StyledTab = withStyles(theme => ({
+  root: {
+    color: "#505050",
+    "&:hover": {
+      color: "#fff",
+      backgroundColor: "#424242"
+    },
+    "&$selected": {
+      color: "#fff",
+      fontWeight: theme.typography.fontWeightMedium
+    }
+  },
+  selected: {}
+}))(Tab);

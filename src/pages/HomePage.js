@@ -1,12 +1,11 @@
 import React from "react";
 import { Grid, Typography, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import { Animated } from "react-animated-css";
 
 const userStyles = makeStyles(theme => ({
   content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
-    height: "100vh"
+    height: "90vh"
   },
   nameHover: {
     color: "#262037",
@@ -15,6 +14,15 @@ const userStyles = makeStyles(theme => ({
       fontSize: "7rem",
       transition: "0.3s",
       color: "#5E2BED"
+    }
+  },
+  jobHover: {
+    color: "#043960",
+    transition: "0.3s",
+    "&:hover": {
+      fontSize: "7rem",
+      transition: "0.3s",
+      color: "#03a9f4"
     }
   }
 }));
@@ -30,20 +38,36 @@ export default function HomePage() {
     >
       <Grid item xs={12}>
         <Typography style={{ color: "#ffffff" }} variant="h1">
-          <Box fontFamily="Ramabhadra, sans-serif" display="inline">
-            Hi, I'm{" "}
-          </Box>
-          <Box
-            fontFamily="Ramabhadra, sans-serif"
-            display="inline"
-            className={classes.nameHover}
-          >
-            Vuottek,
-          </Box>
-          <Box fontFamily="Ramabhadra, sans-serif">
-            Full-Stack Web Developer
-          </Box>
+          <Animated isVisible={true}>
+            <Box fontFamily="Ramabhadra, sans-serif" display="inline">
+              Hi, I'm{" "}
+            </Box>
+            <Box
+              fontFamily="Ramabhadra, sans-serif"
+              display="inline"
+              className={classes.nameHover}
+            >
+              Vuottek.
+            </Box>
+          </Animated>
+
+          <Animated animationInDelay={500}>
+            <Box
+              className={classes.jobHover}
+              fontFamily="Ramabhadra, sans-serif"
+            >
+              Full-Stack Web Developer
+            </Box>
+          </Animated>
         </Typography>
+
+        <Animated animationInDelay={1000}>
+          <Typography style={{ color: "#9B9B9B" }} variant="subtitle1">
+            <Box fontSize="1.5rem" fontFamily="Montserrat">
+              A Computer Science and Physics Enthusiast.
+            </Box>
+          </Typography>
+        </Animated>
       </Grid>
     </Grid>
   );
