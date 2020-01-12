@@ -2,6 +2,7 @@ import React from "react";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import {
+  Grid,
   Tabs,
   Tab,
   Typography,
@@ -31,11 +32,23 @@ const useStyles = makeStyles(theme => ({
     color: "#505050",
     textAlign: "center",
     marginTop: "0.5em",
-    marginBottom: "30vh"
+    marginBottom: "30vh",
+    [theme.breakpoints.down("lg")]: {
+      marginBottom: "9vh"
+    }
   },
   socialIcons: {
     color: "#505050",
-    marginLeft: "2em"
+    marginLeft: "2em",
+    [theme.breakpoints.down("lg")]: {
+      marginLeft: "0.7em"
+    }
+  },
+  socialList: {
+    marginTop: "13vh",
+    [theme.breakpoints.down("lg")]: {
+      marginTop: "9vh"
+    }
   },
   root: {
     flexGrow: 1,
@@ -84,94 +97,107 @@ export default function SideNav() {
 
   return (
     <div className={classes.root}>
-      <StyledTabs
-        orientation="vertical"
-        value={value}
-        onChange={handleChange}
-        aria-label="side nav"
-      >
-        {/* Logo */}
-        <Typography component="div" className={classes.topIcon} variant="h5">
-          <Box fontWeight="fontWeightBold">V</Box>
-        </Typography>
+      <Grid container>
+        <Grid item xs={2} sm={1}>
+          <StyledTabs
+            orientation="vertical"
+            value={value}
+            onChange={handleChange}
+            aria-label="side nav"
+          >
+            {/* Logo */}
+            <Typography
+              component="div"
+              className={classes.topIcon}
+              variant="h5"
+            >
+              <Box fontWeight="fontWeightBold">V</Box>
+            </Typography>
 
-        {/* Tabs */}
-        <StyledTab icon={<Home />} label="Home" {...a11yProps(0)} />
-        <StyledTab
-          icon={<AccountBoxRounded />}
-          label="About me"
-          {...a11yProps(1)}
-        />
-        <StyledTab icon={<Work />} {...a11yProps(2)} label="Projects" />
-        <StyledTab icon={<ContactMail />} {...a11yProps(3)} label="Contact" />
+            {/* Tabs */}
+            <StyledTab icon={<Home />} label="Home" {...a11yProps(0)} />
+            <StyledTab
+              icon={<AccountBoxRounded />}
+              label="About me"
+              {...a11yProps(1)}
+            />
+            <StyledTab icon={<Work />} {...a11yProps(2)} label="Projects" />
+            <StyledTab
+              icon={<ContactMail />}
+              {...a11yProps(3)}
+              label="Contact"
+            />
 
-        {/* Social Icons */}
-        <List style={{ marginTop: "13vh" }}>
-          <ListItem
-            button
-            component="a"
-            href="https://github.com/userinfamous"
-            target="_blank"
-          >
-            <ListItemIcon>
-              <GitHub className={classes.socialIcons} />
-            </ListItemIcon>
-          </ListItem>
-          <ListItem
-            button
-            component="a"
-            href="https://www.linkedin.com/in/vuottek-un-718731156/"
-            target="_blank"
-          >
-            <ListItemIcon>
-              <LinkedIn className={classes.socialIcons} />
-            </ListItemIcon>
-          </ListItem>
-          <ListItem
-            button
-            component="a"
-            href="https://www.facebook.com/profile.php?id=100015006365789"
-            target="_blank"
-          >
-            <ListItemIcon>
-              <Facebook className={classes.socialIcons} />
-            </ListItemIcon>
-          </ListItem>
-          <ListItem
-            button
-            component="a"
-            href="https://www.instagram.com/autisticcatt/"
-            target="_blank"
-          >
-            <ListItemIcon>
-              <Instagram className={classes.socialIcons} />
-            </ListItemIcon>
-          </ListItem>
-          <ListItem
-            button
-            component="a"
-            href="https://twitter.com/VVoshe"
-            target="_blank"
-          >
-            <ListItemIcon>
-              <Twitter className={classes.socialIcons} />
-            </ListItemIcon>
-          </ListItem>
-        </List>
-      </StyledTabs>
-
-      <TabPanel value={value} index={1}>
-        <HomePage />
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        <AboutMe />
-      </TabPanel>
-      <TabPanel value={value} index={3}>
-        <Projects />
-      </TabPanel>
-      <TabPanel value={value} index={4}>
-        <Contact />
-      </TabPanel>
+            {/* Social Icons */}
+            <List className={classes.socialList}>
+              <ListItem
+                button
+                component="a"
+                href="https://github.com/userinfamous"
+                target="_blank"
+              >
+                <ListItemIcon>
+                  <GitHub className={classes.socialIcons} />
+                </ListItemIcon>
+              </ListItem>
+              <ListItem
+                button
+                component="a"
+                href="https://www.linkedin.com/in/vuottek-un-718731156/"
+                target="_blank"
+              >
+                <ListItemIcon>
+                  <LinkedIn className={classes.socialIcons} />
+                </ListItemIcon>
+              </ListItem>
+              <ListItem
+                button
+                component="a"
+                href="https://www.facebook.com/profile.php?id=100015006365789"
+                target="_blank"
+              >
+                <ListItemIcon>
+                  <Facebook className={classes.socialIcons} />
+                </ListItemIcon>
+              </ListItem>
+              <ListItem
+                button
+                component="a"
+                href="https://www.instagram.com/autisticcatt/"
+                target="_blank"
+              >
+                <ListItemIcon>
+                  <Instagram className={classes.socialIcons} />
+                </ListItemIcon>
+              </ListItem>
+              <ListItem
+                button
+                component="a"
+                href="https://twitter.com/VVoshe"
+                target="_blank"
+              >
+                <ListItemIcon>
+                  <Twitter className={classes.socialIcons} />
+                </ListItemIcon>
+              </ListItem>
+            </List>
+          </StyledTabs>
+        </Grid>
+        <Grid item xs={10} sm={11}>
+          <TabPanel value={value} index={1}>
+            <HomePage />
+          </TabPanel>
+          <TabPanel value={value} index={2}>
+            <AboutMe />
+          </TabPanel>
+          <TabPanel value={value} index={3}>
+            <Projects />
+          </TabPanel>
+          <TabPanel value={value} index={4}>
+            <Contact />
+          </TabPanel>
+        </Grid>
+      </Grid>
     </div>
   );
 }
@@ -189,6 +215,9 @@ const StyledTabs = withStyles(theme => ({
 const StyledTab = withStyles(theme => ({
   root: {
     color: "#505050",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "0.6rem"
+    },
     "&:hover": {
       color: "#fff",
       backgroundColor: "#424242"
