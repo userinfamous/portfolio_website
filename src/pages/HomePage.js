@@ -58,7 +58,9 @@ export default function HomePage() {
                 Vuottek.
               </Box>
             </Animated>
+          </Typography>
 
+          <Typography variant="h2">
             <Animated animationInDelay={500}>
               <Box
                 className={classes.jobHover}

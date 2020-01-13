@@ -39,22 +39,16 @@ const useStyles = makeStyles(theme => ({
   },
   socialIcons: {
     color: "#505050",
-    marginLeft: "2em",
-    [theme.breakpoints.down("lg")]: {
-      marginLeft: "0.7em"
+    marginLeft: "15%",
+    [theme.breakpoints.up("sm")]: {
+      marginLeft: "90%"
     }
   },
   socialList: {
-    marginTop: "13vh",
-    [theme.breakpoints.down("lg")]: {
-      marginTop: "9vh"
-    }
+    marginTop: "75%"
   },
   root: {
-    flexGrow: 1,
-    backgroundColor: "#000",
-    display: "flex",
-    height: "100vh"
+    backgroundColor: "#000"
   }
 }));
 
@@ -98,7 +92,7 @@ export default function SideNav() {
   return (
     <div className={classes.root}>
       <Grid container>
-        <Grid item xs={2} sm={1}>
+        <Grid item xs={2} sm={3} md={2} xl={1}>
           <StyledTabs
             orientation="vertical"
             value={value}
@@ -183,7 +177,7 @@ export default function SideNav() {
             </List>
           </StyledTabs>
         </Grid>
-        <Grid item xs={10} sm={11}>
+        <Grid item xs={10} sm={9} md={10} xl={11}>
           <TabPanel value={value} index={1}>
             <HomePage />
           </TabPanel>
@@ -205,7 +199,11 @@ export default function SideNav() {
 const StyledTabs = withStyles(theme => ({
   root: {
     borderRight: `1px solid ${theme.palette.divider}`,
-    backgroundColor: "#1c1c1c"
+    backgroundColor: "#1c1c1c",
+    height: "100vh",
+    [theme.breakpoints.up("sm")]: {
+      width: "10rem"
+    }
   },
   indicator: {
     backgroundColor: "#5E2BED"

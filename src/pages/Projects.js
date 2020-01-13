@@ -14,8 +14,8 @@ import {
 
 const useStyles = makeStyles({
   card: {
-    maxWidth: "30vw",
-    maxHeight: "30vh"
+    maxWidth: "100%",
+    maxHeight: "100%"
   }
 });
 
@@ -24,7 +24,7 @@ export default function ImgMediaCard() {
 
   return (
     <Grid container spacing={3}>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} md={4}>
         <Animated>
           <Card className={classes.card}>
             <CardActionArea>
@@ -59,7 +59,7 @@ export default function ImgMediaCard() {
           </Card>
         </Animated>
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} md={4}>
         <Animated animationInDelay={500}>
           <Card className={classes.card}>
             <CardActionArea>
@@ -86,7 +86,7 @@ export default function ImgMediaCard() {
           </Card>
         </Animated>
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} md={4}>
         <Animated animationInDelay={1000}>
           <Card className={classes.card}>
             <CardActionArea>
