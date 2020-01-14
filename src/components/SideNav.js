@@ -45,7 +45,10 @@ const useStyles = makeStyles(theme => ({
     }
   },
   socialList: {
-    marginTop: "75%"
+    marginTop: "75%",
+    [theme.breakpoints.down("lg")]: {
+      marginTop: "10%"
+    }
   },
   root: {
     backgroundColor: "#000"
