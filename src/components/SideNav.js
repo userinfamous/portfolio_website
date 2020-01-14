@@ -140,7 +140,7 @@ export default function SideNav() {
               <ListItem
                 button
                 component="a"
-                href="https://www.linkedin.com/in/vuottek-un-718731156/"
+                href="https://www.linkedin.com/in/vuottek-un/"
                 target="_blank"
               >
                 <ListItemIcon>
