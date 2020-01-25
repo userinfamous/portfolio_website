@@ -2,6 +2,7 @@ import React from "react";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import {
+  AppBar,
   Grid,
   Tabs,
   Tab,
@@ -96,89 +97,74 @@ export default function SideNav() {
     <div className={classes.root}>
       <Grid container>
         <Grid item xs={2} sm={3} md={2} xl={1}>
-          <StyledTabs
-            orientation="vertical"
-            value={value}
-            onChange={handleChange}
-            aria-label="side nav"
-          >
-            {/* Logo */}
-            <Typography
-              component="div"
-              className={classes.topIcon}
-              variant="h5"
+          <AppBar position="sticky">
+            <StyledTabs
+              orientation="vertical"
+              value={value}
+              onChange={handleChange}
+              aria-label="side nav"
             >
-              <Box fontWeight="fontWeightBold">V</Box>
-            </Typography>
+              {/* Logo */}
+              <Typography component="div" className={classes.topIcon} variant="h5">
+                <Box fontWeight="fontWeightBold">V</Box>
+              </Typography>
 
-            {/* Tabs */}
-            <StyledTab icon={<Home />} label="Home" {...a11yProps(0)} />
-            <StyledTab
-              icon={<AccountBoxRounded />}
-              label="About me"
-              {...a11yProps(1)}
-            />
-            <StyledTab icon={<Work />} {...a11yProps(2)} label="Projects" />
-            <StyledTab
-              icon={<ContactMail />}
-              {...a11yProps(3)}
-              label="Contact"
-            />
+              {/* Tabs */}
+              <StyledTab icon={<Home />} label="Home" {...a11yProps(0)} />
+              <StyledTab icon={<AccountBoxRounded />} label="About me" {...a11yProps(1)} />
+              <StyledTab icon={<Work />} {...a11yProps(2)} label="Projects" />
+              <StyledTab icon={<ContactMail />} {...a11yProps(3)} label="Contact" />
 
-            {/* Social Icons */}
-            <List className={classes.socialList}>
-              <ListItem
-                button
-                component="a"
-                href="https://github.com/userinfamous"
-                target="_blank"
-              >
-                <ListItemIcon>
-                  <GitHub className={classes.socialIcons} />
-                </ListItemIcon>
-              </ListItem>
-              <ListItem
-                button
-                component="a"
-                href="https://www.linkedin.com/in/vuottek-un/"
-                target="_blank"
-              >
-                <ListItemIcon>
-                  <LinkedIn className={classes.socialIcons} />
-                </ListItemIcon>
-              </ListItem>
-              <ListItem
-                button
-                component="a"
-                href="https://www.facebook.com/profile.php?id=100015006365789"
-                target="_blank"
-              >
-                <ListItemIcon>
-                  <Facebook className={classes.socialIcons} />
-                </ListItemIcon>
-              </ListItem>
-              <ListItem
-                button
-                component="a"
-                href="https://www.instagram.com/autisticcatt/"
-                target="_blank"
-              >
-                <ListItemIcon>
-                  <Instagram className={classes.socialIcons} />
-                </ListItemIcon>
-              </ListItem>
-              <ListItem
-                button
-                component="a"
-                href="https://twitter.com/VVoshe"
-                target="_blank"
-              >
-                <ListItemIcon>
-                  <Twitter className={classes.socialIcons} />
-                </ListItemIcon>
-              </ListItem>
-            </List>
-          </StyledTabs>
+              {/* Social Icons */}
+              <List className={classes.socialList}>
+                <ListItem
+                  button
+                  component="a"
+                  href="https://github.com/userinfamous"
+                  target="_blank"
+                >
+                  <ListItemIcon>
+                    <GitHub className={classes.socialIcons} />
+                  </ListItemIcon>
+                </ListItem>
+                <ListItem
+                  button
+                  component="a"
+                  href="https://www.linkedin.com/in/vuottek-un/"
+                  target="_blank"
+                >
+                  <ListItemIcon>
+                    <LinkedIn className={classes.socialIcons} />
+                  </ListItemIcon>
+                </ListItem>
+                <ListItem
+                  button
+                  component="a"
+                  href="https://www.facebook.com/profile.php?id=100015006365789"
+                  target="_blank"
+                >
+                  <ListItemIcon>
+                    <Facebook className={classes.socialIcons} />
+                  </ListItemIcon>
+                </ListItem>
+                <ListItem
+                  button
+                  component="a"
+                  href="https://www.instagram.com/autisticcatt/"
+                  target="_blank"
+                >
+                  <ListItemIcon>
+                    <Instagram className={classes.socialIcons} />
+                  </ListItemIcon>
+                </ListItem>
+                <ListItem button component="a" href="https://twitter.com/VVoshe" target="_blank">
+                  <ListItemIcon>
+                    <Twitter className={classes.socialIcons} />
+                  </ListItemIcon>
+                </ListItem>
+              </List>
+            </StyledTabs>
+          </AppBar>
         </Grid>
         <Grid item xs={10} sm={9} md={10} xl={11}>
           <TabPanel value={value} index={1}>

@@ -33,8 +33,8 @@ export default function ImgMediaCard() {
                   <Box fontFamily="Montserrat">Coding Club Website</Box>
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  A simple NodeJS static website with some JQuery and
-                  animations. Deployed on Heroku.
+                  A simple NodeJS static website with some JQuery and animations. Deployed on
+                  Heroku.
                 </Typography>
               </CardContent>
             </CardActionArea>
@@ -68,8 +68,8 @@ export default function ImgMediaCard() {
                   <Box fontFamily="Montserrat">Johan, The Game</Box>
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  My first real 2D platformer game using GameMaker, GML,
-                  finite-state machine and shaders.
+                  My first real 2D platformer game using GameMaker, GML, finite-state machine and
+                  shaders.
                 </Typography>
               </CardContent>
             </CardActionArea>
@@ -95,8 +95,8 @@ export default function ImgMediaCard() {
                   <Box fontFamily="Montserrat">Wall Jump, The Game</Box>
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  A demo only, it is far from being considered a proper game.
-                  But relatively polished, made using Godot Engine.
+                  A demo only, it is far from being considered a proper game. But relatively
+                  polished, made using Godot Engine.
                 </Typography>
               </CardContent>
             </CardActionArea>
