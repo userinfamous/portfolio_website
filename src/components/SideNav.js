@@ -97,7 +97,7 @@ export default function SideNav() {
     <div className={classes.root}>
       <Grid container>
         <Grid item xs={2} sm={3} md={2} xl={1}>
-          <AppBar position="sticky">
+          <AppBar position="sticky" style={{ background: "transparent", boxShadow: "none" }}>
             <StyledTabs
               orientation="vertical"
               value={value}
